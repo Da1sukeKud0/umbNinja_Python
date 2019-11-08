@@ -1,0 +1,1 @@
+pyinstaller umbNinja.py --onefile
