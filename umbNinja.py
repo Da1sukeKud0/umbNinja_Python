@@ -16,6 +16,9 @@ prefectureList = [
     "aichi", "ehime", "ibaraki", "okayama", "okinawa", "iwate", "gifu", "miyazaki", "miyagi", "kyoto", "kumamoto", "gunma", "hiroshima", "kagawa", "kochi", "saga", "saitama", "mie", "yamagata", "yamaguchi", "yamanashi", "shiga", "kagoshima", "akita", "niigata", "kanagawa", "aomori", "shizuoka", "ishikawa", "chiba", "osaka", "oita", "nagasaki", "nagano", "tottori", "shimane", "tokyo", "tokushima", "tochigi", "nara", "toyama", "fukui", "fukuoka", "fukushima", "hyogo", "hokkaido", "wakayama"
 ]
 
+# 画像表示の間隔
+showspan = 3
+
 # フォントの設定
 fontsize = 35
 font = ImageFont.truetype("meiryob.ttc", size=fontsize) 
@@ -99,13 +102,13 @@ if __name__ == '__main__':
         with Image.open(question_img) as img:
             draw = ImageDraw.Draw(img)
             img.show()
-            time.sleep(3)
+            time.sleep(showspan)
 
         with Image.open(answer_img) as img:
             img = img.resize((int(img.width * 2), int(img.height * 2)))
             draw = ImageDraw.Draw(img)
             # 優勝者を画像に入力して表示
             champion = champDic[pre]
-            draw.text((fontsize, int(img.height )- fontsize * 3), champion, font=font, fill=(255,255,0), stroke_width=1, stroke_fill=(255,0,0))
+            draw.text((fontsize, int(img.height)- fontsize * 3), champion, font=font, fill=(255,255,0), stroke_width=1, stroke_fill=(255,0,0))
             img.show()
-            time.sleep(3)
+            time.sleep(showspan)
